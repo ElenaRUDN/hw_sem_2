@@ -22,7 +22,6 @@ int main(void){
     scanf("%d", &you);
     for (int i = 0; i < ROWS; ++i){
         for (int j = 0; j < COLUMNS; ++j) {
-            printf("%d\n", arr[i][j]);
             if(you == arr[i][j]){
                 printf("%d\t", i+1);
                 printf("%d\t", j+1);
