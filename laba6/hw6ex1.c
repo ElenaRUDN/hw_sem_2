@@ -6,18 +6,21 @@ int main(){
     int i = 0;
     int k = 1;
     int maximk = 0;
-    char arr[9] = {'U','R','R','R','B','T','J','!','T'};
+    char arr[9] = {'U','R','R','R','B','T','T','T','T'};
     for(; i<8; i++){
         if (arr[i] == arr[i+1]){
             k++;
             if (k > maximk){
                 maximk = k;
             }
+        }
         else {
-            printf("%d", k);
-            k = 0;
+            if (k > maximk){
+                maximk = k;
+            }
+            k = 1;
         }
-        }
+        
     }
     printf("%d", maximk);
     return 0;
