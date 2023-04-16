@@ -17,7 +17,7 @@ int main(){
 
     printf("%s\t", "Введите максимальный размер массива:");
     scanf("%d", &max_razm);
-    printf("%s\t", "Введите количество элементов, которые вы хотите заполнить единицами:");
+    printf("%s\t", "Введите количество элементов, которые вы хотите заполнить:");
     scanf("%d", &elements);
 
     if(max_razm < elements){
@@ -28,18 +28,26 @@ int main(){
         int arr[max_razm];
 
         for(i = 0; i < max_razm; i++){
-            arr[i] = 1;
+            if (i<elements){
+                arr[i]=rand()%100;
+            }
+            else{
+                arr[i]=0;
+            }
         }
         print(arr, max_razm);
-
+        printf("\n");
         printf("%s\n\n","Добавление в конец массива:");
         for(i = 1; i < 6; i++){
-            printf("%s\n", "Добавляем в конец");
+            printf("%s", "Добавляем в конец: ");
+            printf("%d\n", i);
             append(arr, max_razm, i);
         }
+        printf("\n");
         printf("%s\n\n","Добавление в середину массива:");
         for(i = 1; i < 6; i++){
-            printf("%s\n", "Добавляем в середину");
+            printf("%s", "Добавляем в середину: ");
+            printf("%d\n", i);
             insert(arr, max_razm, i);
         }    
     }
@@ -53,7 +61,7 @@ void print(int arr[], int max_razm){
     }
 }
 void append(int arr[], int max_razm, int dop_elem){
-    arr[max_razm] = dop_elem;
+    arr[max_razm - 1] = dop_elem;
     print(arr, max_razm);
     printf("\n");
 }
