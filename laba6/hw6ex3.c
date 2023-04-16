@@ -5,21 +5,19 @@
 #include <stdlib.h>
 #include <time.h>
 
-void append(int arr[], int max_razm, int elements);
+void append(int arr[], int max_razm, int dop_elem);
 void print(int arr[], int max_razm);
-void insert(int arr[], int max_razm, int elements);
+void insert(int arr[], int max_razm, int dop_elem);
 
 int main(){
     int max_razm;
     int elements;
-    int com;
-    int i = 0;
+    int i;
     int dop_elem;
-    int mesto;
 
     printf("%s\t", "Введите максимальный размер массива:");
     scanf("%d", &max_razm);
-    printf("%s\t", "Введите количество элементов, которые вы хотите заполнить:");
+    printf("%s\t", "Введите количество элементов, которые вы хотите заполнить единицами:");
     scanf("%d", &elements);
 
     if(max_razm < elements){
@@ -29,18 +27,19 @@ int main(){
     else{
         int arr[max_razm];
 
-        for(i = 0; i < elements; i++){
-            arr[i] = rand()%100;
+        for(i = 0; i < max_razm; i++){
+            arr[i] = 1;
         }
-        for(i = elements; elements < max_razm; i++){
-            arr[i] = 0;
-        }
-        printf("%s\n","Добавление в конец массива:");
-        for(i = 0; i < 5; i++){
+        print(arr, max_razm);
+
+        printf("%s\n\n","Добавление в конец массива:");
+        for(i = 1; i < 6; i++){
+            printf("%s\n", "Добавляем в конец");
             append(arr, max_razm, i);
         }
-        printf("%s\n","Добавление в середину массива:");
-        for(i = 0; i < 5; i++){
+        printf("%s\n\n","Добавление в середину массива:");
+        for(i = 1; i < 6; i++){
+            printf("%s\n", "Добавляем в середину");
             insert(arr, max_razm, i);
         }    
     }
@@ -48,15 +47,18 @@ int main(){
 }
 
 void print(int arr[], int max_razm){
-    for(int j = 0; j < max_razm; j++){
+    int j;
+    for(j = 0; j < max_razm; j++){
         printf("%d\t", arr[j]);
     }
 }
 void append(int arr[], int max_razm, int dop_elem){
     arr[max_razm] = dop_elem;
     print(arr, max_razm);
+    printf("\n");
 }
 void insert(int arr[], int max_razm, int dop_elem){
-    arr[max_razm/2] == dop_elem;
+    arr[max_razm/2] = dop_elem;
     print(arr, max_razm);
+    printf("\n");
 }
